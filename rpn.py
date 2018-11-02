@@ -1,4 +1,5 @@
 import operator
+from termcolor import colored
 
 
 operators = {
@@ -29,7 +30,12 @@ def calculate(myarg):
 def main():
     while True:
         result = calculate(input("rpn calc> "))
-        print("Result: ", result)
+        if result < 0:
+            print("Result: ", colored(result, 'red'))
+        elif result > 0:
+            print("Result: ", colored(result, 'green'))
+        else:
+            print("Result: ", colored(result, 'yellow'))
 
 if __name__ == '__main__':
     main()
