@@ -23,6 +23,22 @@ class TestBasics(unittest.TestCase):
         result = rpn.calculate("2 3 ^")
         self.assertEqual(8, result)
 
+    def test_hex(self):
+        result = rpn.calculate("hex A A +")
+        self.assertEqual('14', result)
+
+    def test_bin(self):
+        result = rpn.calculate("bin 101 111 +")
+        self.assertEqual('1100', result)
+
+    def test_copy(self):
+        result = rpn.calculate("6 c +")
+        self.assertEqual(12, result)
+
+    def test_factorial(self):
+        result = rpn.calculate("4 !")
+        self.assertEqual(24, result)
+
 
 if __name__ == '__main__':
     unittest.main()
